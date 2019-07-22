@@ -1,0 +1,77 @@
+version: "2"
+
+### Servicios
+services:
+
+  ### Nginx
+  nginx:    
+    container_name: project-nginx
+    build:
+      context: ./nginx
+      args:
+        - DOCKER_HTTP_USER=${DOCKER_HTTP_USER}
+        - DOCKER_HTTP_PASS=${DOCKER_HTTP_PASS}
+    environment:
+      - TZ=${TIMEZONE}
+    ports:
+      - "${HTTP_STD_PORT_IN}:${HTTP_STD_PORT_OUT}"
+      - "${HTTPS_STD_PORT_IN}:${HTTPS_STD_PORT_OUT}"
+    volumes:
+      - /static:/static
+    depends_on:
+      - django
+    links:
+      - jenkins
+      - sonarqube
+      - portainer
+
+  jenkins:
+    container_name: project-jenkins
+    build: 
+      context: ./jenkins
+    ports:
+        - "${JENKINS_EXECUTOR_OUT_PORT}:${JENKINS_EXECUTOR_IN_PORT}"
+    environment:
+        - TZ=${TIMEZONE}
+        - JENKINS_OPTS="--prefix=/jenkins"
+        - JAVA_OPTS="-Dmail.smtp.starttls.enable=true"
+
+  postgres:
+    container_name: project-postgres
+    build: ./postgres
+    environment:
+        - TZ=${TIMEZONE}
+        - POSTGRES_DB=${POSTGRES_DB}
+        - POSTGRES_USER=${POSTGRES_USER}
+        - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+
+  sonarqube:
+    container_name: project-sonarqube
+    build: ./sonarqube
+    environment:
+        - TZ=${TIMEZONE}
+        - SONARQUBE_JDBC_USERNAME=${SONARQUBE_JDBC_USERNAME}
+        - SONARQUBE_JDBC_PASSWORD=${SONARQUBE_JDBC_PASSWORD}
+        - SONARQUBE_JDBC_URL=${SONARQUBE_JDBC_URL}
+    links:
+        - postgres
+
+  portainer:
+    container_name: project-portainer
+    image: portainer/portainer
+    restart: always
+    ports:
+        - "${PORTAINER_OUT_PORT}:${PORTAINER_IN_PORT}"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      #- /opt/portainer/data:/data
+    
+  django:
+    container_name: project-django
+    build: ./django
+    command: bash -c "python manage.py collectstatic --noinput && python manage.py makemigrations && python manage.py migrate && gunicorn Optilinker.wsgi -b 0.0.0.0:8000"
+    volumes:
+      - ./sources:/sources
+      - /static:/static
+    expose:
+      - "8000"
