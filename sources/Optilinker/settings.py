@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['django', 'localhost', '0.0.0.0']
 # Application definition
 
 INSTALLED_APPS = [
+    'suit',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -76,8 +77,12 @@ WSGI_APPLICATION = 'Optilinker.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'Optilinker.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'linker',
+        'USER': 'optiplanet',
+        'PASSWORD': '0ptiPlan3t',
+        'HOST': 'postgres-django',
+        'PORT': '5432',
     }
 }
 

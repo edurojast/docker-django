@@ -6,6 +6,8 @@ ENV PYTHONUNBUFFERED 1
 RUN mkdir /config
 ADD /config/requirements.pip /config/
 RUN pip install -r /config/requirements.pip
+RUN pip install https://github.com/darklow/django-suit/tarball/v2
 RUN rm -rf /sources
 RUN mkdir /sources;
+
 WORKDIR /sources

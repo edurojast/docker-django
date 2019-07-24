@@ -36,14 +36,27 @@ services:
         - JENKINS_OPTS="--prefix=/jenkins"
         - JAVA_OPTS="-Dmail.smtp.starttls.enable=true"
 
-  postgres:
-    container_name: project-postgres
+  postgres-sonar:
+    container_name: project-postgres-sonar
+    ports:
+        - "${POSTGRES_SONAR_OUT_PORT}:${POSTGRES_SONAR_IN_PORT}"
     build: ./postgres
     environment:
         - TZ=${TIMEZONE}
-        - POSTGRES_DB=${POSTGRES_DB}
-        - POSTGRES_USER=${POSTGRES_USER}
-        - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+        - POSTGRES_DB=${POSTGRES_SONAR_DB}
+        - POSTGRES_USER=${POSTGRES_SONAR_USER}
+        - POSTGRES_PASSWORD=${POSTGRES_SONAR_PASSWORD}
+  
+  postgres-django:
+    container_name: project-postgres-django
+    ports:
+        - "${POSTGRES_DJANGO_OUT_PORT}:${POSTGRES_DJANGO_IN_PORT}"
+    build: ./postgres
+    environment:
+        - TZ=${TIMEZONE}
+        - POSTGRES_DB=${POSTGRES_DJANGO_DB}
+        - POSTGRES_USER=${POSTGRES_DJANGO_USER}
+        - POSTGRES_PASSWORD=${POSTGRES_DJANGO_PASSWORD}
 
   sonarqube:
     container_name: project-sonarqube
@@ -54,7 +67,7 @@ services:
         - SONARQUBE_JDBC_PASSWORD=${SONARQUBE_JDBC_PASSWORD}
         - SONARQUBE_JDBC_URL=${SONARQUBE_JDBC_URL}
     links:
-        - postgres
+        - postgres-sonar
 
   portainer:
     container_name: project-portainer
@@ -73,5 +86,7 @@ services:
     volumes:
       - ./sources:/sources
       - /static:/static
+    links:
+      - postgres-django
     expose:
       - "8000"

@@ -18,11 +18,11 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import path
 
 # default: "Django Administration"
-admin.site.site_header = 'OptiLinker'
+admin.site.site_header = 'Linker'
 # default: "Site administration"
 admin.site.index_title = 'Administración'
 # default: "Django site admin"
-admin.site.site_title = 'OptiLinker'
+admin.site.site_title = 'Linker'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
