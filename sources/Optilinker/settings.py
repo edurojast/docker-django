@@ -31,7 +31,7 @@ ALLOWED_HOSTS = ['django', 'localhost', '0.0.0.0']
 # Application definition
 
 INSTALLED_APPS = [
-    'jet_django',
+    'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
