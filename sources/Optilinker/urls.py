@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from django.urls import path
+from django.urls import path, include
+from jet_django.urls import jet_urls
 
 # default: "Django Administration"
 admin.site.site_header = 'Linker'
@@ -25,6 +26,9 @@ admin.site.index_title = 'Administración'
 admin.site.site_title = 'Linker'
 
 urlpatterns = [
+
+    path('jet/', include('jet.urls', 'jet')),
+
     path('admin/', admin.site.urls),
 ]
 
