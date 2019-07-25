@@ -31,7 +31,7 @@ ALLOWED_HOSTS = ['django', 'localhost', '0.0.0.0']
 # Application definition
 
 INSTALLED_APPS = [
-    'baton',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Optilinker.Apps.Gestion_Inventario',
-    'baton.autodiscover',
+
 ]
 
 MIDDLEWARE = [

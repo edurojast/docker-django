@@ -1,4 +1,4 @@
 Django==2.2.3
 gunicorn==19.9.0
 postgres==2.2.2
-django-baton==1.5.4
+git+git://github.com/sshwsfc/xadmin.git@django2

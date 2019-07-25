@@ -27,7 +27,6 @@ admin.site.site_title = 'Linker'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('baton/', include('baton.urls')),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
