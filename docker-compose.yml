@@ -17,7 +17,7 @@ services:
       - "${HTTP_STD_PORT_IN}:${HTTP_STD_PORT_OUT}"
       - "${HTTPS_STD_PORT_IN}:${HTTPS_STD_PORT_OUT}"
     volumes:
-      - $PWD:/static
+      - /static:/static
     depends_on:
       - django
     links:
