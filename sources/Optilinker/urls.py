@@ -17,14 +17,6 @@ from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import path, include
 
-# Uncomment the next two lines to enable the admin:
-import xadmin
-xadmin.autodiscover()
-
-# version模块自动注册需要版本控制的 Model
-from xadmin.plugins import xversion
-xversion.register_models()
-
 # default: "Django Administration"
 admin.site.site_header = 'Linker'
 # default: "Site administration"
@@ -33,8 +25,7 @@ admin.site.index_title = 'Administración'
 admin.site.site_title = 'Linker'
 
 urlpatterns = [
-    #path('admin/', admin.site.urls),
-    path(r'', xadmin.site.urls)
+    path(r'', admin.site.urls),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
