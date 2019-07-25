@@ -28,7 +28,7 @@ admin.site.site_title = 'Linker'
 urlpatterns = [
 
     path('admin/', admin.site.urls),
-    re_path(r'^jet/', include(('jet.urls', 'jet'))),
+    re_path(r'^jet_api/', include(jet_urls)),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
