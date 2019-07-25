@@ -38,11 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Optilinker.Apps.Gestion_Inventario',
+
 
     'xadmin',
     'crispy_forms',
     'reversion',
+
+    'Optilinker.Apps.Gestion_Inventario',
 
 ]
 
