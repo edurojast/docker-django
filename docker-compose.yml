@@ -31,21 +31,11 @@ services:
         - POSTGRES_DB=${POSTGRES_DJANGO_DB}
         - POSTGRES_USER=${POSTGRES_DJANGO_USER}
         - POSTGRES_PASSWORD=${POSTGRES_DJANGO_PASSWORD}
-
-  portainer:
-    container_name: project-portainer
-    image: portainer/portainer
-    restart: always
-    ports:
-        - "${PORTAINER_OUT_PORT}:${PORTAINER_IN_PORT}"
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      #- /opt/portainer/data:/data
     
   django:
     container_name: project-django
     build: ./django
-    command: bash -c "python manage.py collectstatic --noinput && python manage.py makemigrations && python manage.py migrate && gunicorn Optilinker.wsgi -b 0.0.0.0:8000"
+    command: bash -c "python manage.py collectstatic --noinput && python manage.py makemigrations && python manage.py migrate && gunicorn linker.wsgi -b 0.0.0.0:8000"
     volumes:
       - ./sources:/sources
       - /static:/static
