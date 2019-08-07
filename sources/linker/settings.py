@@ -23,15 +23,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '0$#ur2x_b0+9#)kcbp2_t*54nesa5atexxr^hz6$8x01z-(*&j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0']
+ALLOWED_HOSTS = ['0.0.0.0', 'linker', 'django']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'grappelli.dashboard',
+
     'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'linker.apps.comun',
+    'linker.apps.inventario',
+    'linker.apps.clientes',
 ]
 
 MIDDLEWARE = [
@@ -86,6 +89,13 @@ DATABASES = {
     }
 }
 
+# DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': 'mydatabase',
+#    }
+# }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -109,7 +119,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'Es-cl'
 
 TIME_ZONE = 'UTC'
 
