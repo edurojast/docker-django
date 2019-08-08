@@ -14,7 +14,6 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-#from baton.autodiscover import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import path, include
 
@@ -23,9 +22,7 @@ admin.site.index_title = 'Administración'
 admin.site.site_title = 'Linker'
 
 urlpatterns = [
-    #path('grappelli/', include('grappelli.urls')),
     path(r'', admin.site.urls),
-    #path('baton/', include('baton.urls')),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
