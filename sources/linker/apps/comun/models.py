@@ -33,7 +33,7 @@ class Comuna(models.Model):
         return self.Nombre
 
     def __str__(self):
-        return '%s %s' % (self.Region.Nombre, self.Nombre)
+        return '%s' % (self.Nombre)
 
     class Meta:
         verbose_name = "Comuna"
