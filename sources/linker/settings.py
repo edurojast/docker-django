@@ -144,4 +144,8 @@ STATICFILES_DIRS = [
 ]
 
 # Grappelli
-GRAPPELLI_ADMIN_TITLE = "Linker For Optiplanet"
+SUIT_CONFIG = {
+    'ADMIN_NAME': 'Linker : Optiplanet',  # Title
+    'HEADER_DATE_FORMAT': 'l, j. F Y',      # Saturday, 16th March 2013
+    'HEADER_TIME_FORMAT': 'H:i',            # 18:42
+}
