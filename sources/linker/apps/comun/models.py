@@ -34,7 +34,7 @@ class Comuna(models.Model):
 
     def __str__(self):
         cadena = "{0}"
-        return cadena.format(self.Nombre)
+        return cadena.format(self.Region)
 
     class Meta:
         verbose_name = "Comuna"
