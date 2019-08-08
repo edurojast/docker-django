@@ -20,6 +20,9 @@ class Articulo(models.Model):
     def __str__(self):
         return self.Codigo
 
+    def __unicode__(self):
+        return self.Nombre
+
     class Meta:
         verbose_name = "Artículo"
         verbose_name_plural = "Artículos"
@@ -37,6 +40,9 @@ class TransaccionTipo(models.Model):
     def __str__(self):
         cadena = "{0}"
         return cadena.format(self.Nombre)
+
+    def __unicode__(self):
+        return self.Nombre
 
     class Meta:
         verbose_name = "Tipo de Transacción"
