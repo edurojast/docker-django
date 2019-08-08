@@ -17,7 +17,7 @@ class Clientes(models.Model):
     Estado = models.BooleanField(default=True)
 
     def __str__(self):
-        return self.Comuna
+        return self.Comuna.Nombre
     
     def __unicode__(self):
         return self.Razon_Social
