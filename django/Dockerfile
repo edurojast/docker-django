@@ -4,6 +4,7 @@ LABEL maintainer="Eduardo Rojas Tejo <eduardo.rojast@sonda.com>"
 ENV PYTHONUNBUFFERED 1
 
 RUN mkdir /config
+RUN rm -rf /config/requirements.pip
 ADD /config/requirements.pip /config/
 RUN pip install -r /config/requirements.pip
 RUN rm -rf /sources
