@@ -7,7 +7,7 @@ class ClientesAdmin(admin.ModelAdmin):
     list_display = ('Razon_Social', 'Rut', 'getRegion', 'getComuna', 'Direccion', 'Telefono_Primario', 'Telefono_Secundario',
     'Encargado_Nombre', 'Encargado_Correo', 'Fecha_Creacion', 'Estado')
     ordering = ('Fecha_Creacion',)
-    search_fields = ('Razon_Social', 'Rut', 'comuna__nombre')
+    search_fields = ('Razon_Social', 'Rut', 'getComuna')
 
     def getComuna(self, obj):
         return obj.Comuna.Nombre
