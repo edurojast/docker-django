@@ -31,9 +31,7 @@ ALLOWED_HOSTS = ['0.0.0.0', 'linker', 'django']
 # Application definition
 
 INSTALLED_APPS = [
-
-    # 'grappelli',
-    # 'baton',
+    'suit',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,7 +41,6 @@ INSTALLED_APPS = [
     'linker.apps.comun',
     'linker.apps.inventario',
     'linker.apps.clientes',
-    # 'baton.autodiscover',
 ]
 
 MIDDLEWARE = [
