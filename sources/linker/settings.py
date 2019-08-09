@@ -31,7 +31,7 @@ ALLOWED_HOSTS = ['0.0.0.0', 'linker', 'django']
 # Application definition
 
 INSTALLED_APPS = [
-    # 'suit',
+    'linker.apps.SuitConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
