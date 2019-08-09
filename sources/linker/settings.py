@@ -143,10 +143,3 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     '/sources/static/',
 ]
-
-# Grappelli
-SUIT_CONFIG = {
-    'ADMIN_NAME': 'Linker : Optiplanet',  # Title
-    'HEADER_DATE_FORMAT': 'l, j. F Y',      # Saturday, 16th March 2013
-    'HEADER_TIME_FORMAT': 'H:i',            # 18:42
-}
