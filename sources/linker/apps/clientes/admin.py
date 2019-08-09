@@ -16,7 +16,7 @@ class ClientesAdmin(admin.ModelAdmin):
     list_display_links = ('Razon_Social','Rut')
     ordering = ('Fecha_Creacion',)
     search_fields = ('Razon_Social', 'Rut', 'Comuna__Nombre')
-    exclude = ('Usuario')
+    exclude = ('Usuario',)
     
 
     def getComuna(self, obj):
