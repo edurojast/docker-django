@@ -30,7 +30,7 @@ class Historial(models.Model):
     TipoContacto = models.ForeignKey('comun.TipoContacto', null=False, blank=False, on_delete=models.CASCADE)
     Fecha_Creacion = models.DateField(auto_now=True)
     Prioridad = models.ForeignKey('comun.Prioridad', null=False, blank=False, on_delete=models.CASCADE)
-    Detalle = models.CharField(max_length=500)
+    Detalle = models.TextField(max_length=500)
     Cliente  = models.ForeignKey(Clientes, null=False, blank=False, on_delete=models.CASCADE)
     Usuario = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.SET_NULL)
     Estado = models.BooleanField(default=True)
