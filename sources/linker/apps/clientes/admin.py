@@ -29,3 +29,5 @@ class ClientesAdmin(admin.ModelAdmin):
         return obj.Comuna.Region.Nombre
     getRegion.short_description = 'Region'
     getRegion.admin_order_field = 'comuna__region__nombre'
+
+admin.site.register(Historial)    
