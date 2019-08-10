@@ -42,5 +42,5 @@ class Historial(models.Model):
         return self.TipoContacto
 
     class Meta:
-        verbose_name = "Cliente"
-        verbose_name_plural = "Clientes"
+        verbose_name = "Historia"
+        verbose_name_plural = "Historial"
