@@ -32,5 +32,9 @@ class ClientesAdmin(admin.ModelAdmin):
     getRegion.short_description = 'Region'
     getRegion.admin_order_field = 'comuna__region__nombre'
 
+<<<<<<< HEAD
 
 admin.site.register(Historial)
+=======
+admin.site.register(Historial)    
+>>>>>>> 3717e47bc30e275d416db66f50d59d022e952e17

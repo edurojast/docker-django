@@ -51,5 +51,10 @@ class Historial(models.Model):
         return self.TipoContacto
 
     class Meta:
+<<<<<<< HEAD
         verbose_name = "Historial"
         verbose_name_plural = "Historial"
+=======
+        verbose_name = "Historia"
+        verbose_name_plural = "Historial"
+>>>>>>> 3717e47bc30e275d416db66f50d59d022e952e17
